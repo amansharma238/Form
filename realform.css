@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    text-align: center;
+    padding: 30%;
+    padding-top: 0%;
+}
+form {
+    border: 5px solid #ffff00;
+    padding: 10%;
+    padding-top: 0%;
+}
+
+h1 {
+    background-color: yellow;
+    padding: 10px;
+}
+
+p {
+    size: 50%;
+    color: yellow;
+}
+button {
+    color: yellow;
+    background-color: black;
+    border: 2px solid yellow;
+    padding: 2%;
+    width: 40%;
+}
+
+input {
+size: 50;
+border: 2px solid yellow;
+background-color: black;
+width: 70%;
+height: 20px;
+color: white;
+}
+
+#feed {
+    height: 100px;
+}
+p {
+    color: #ffff00;
+    padding: 1%;
+    text-align: left;
+    padding-left: 15%;
+}

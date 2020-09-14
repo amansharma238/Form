@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="realform.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <td id="header">
+        <h1>FEEDBACK FORM STYLE</h1>
+    </td>
+    <form method="POST" autocomplete="off" name="google-sheet">
+        <p id="ui">This is a responsive form with some Good UI</p>
+        <p id="name">Name</p>
+        <input type="text" name="Name" required>
+        <p id="email">Email</p>
+        <input type="email" name="Email" required>
+        <p id="des">Designation</p>
+        <input type="text" name="Designation" required>
+        <p id="fd">Feedback</p>
+        <input type="text" id="feed" name="Feedback" required><br><br>
+        <button type="submit" name="submit">SUBMIT</button>
+    </form>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBautF0X-agB7VF4WaIUeN5InySu9UclHexha4/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert('Success!'))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
