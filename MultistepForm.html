@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="MultistepForm.css">
   </head> 
   <body>
+     <form method="POST" autocomplete="off" name="google-sheet">
     <div class="container">
       <header>Signup Form</header>
       <div class="progress-bar">
@@ -53,12 +54,12 @@ Basic Info:</div>
 <div class="field">
               <div class="label">
 First Name</div>
-<input type="text">
+<input type="text" name= First Name>
             </div>
 <div class="field">
               <div class="label">
 Last Name</div>
-<input type="text">
+<input type="text" name = Last Name>
             </div>
 <div class="field">
               <button class="firstNext next">Next</button>
@@ -70,12 +71,12 @@ Contact Info:</div>
 <div class="field">
               <div class="label">
 Email Address</div>
-<input type="text">
+<input type="text" name= Email>
             </div>
 <div class="field">
               <div class="label">
 Phone Number</div>
-<input type="Number">
+<input type="Number" name = Phone>
             </div>
 <div class="field btns">
               <button class="prev-1 prev">Previous</button>
@@ -88,7 +89,7 @@ Date of Birth:</div>
 <div class="field">
               <div class="label">
 Date</div>
-<input type="text">
+<input type="text" name=Date>
             </div>
 <div class="field">
               <div class="label">
@@ -106,16 +107,16 @@ Gender</div>
 </div>
 <div class="page">
             <div class="title">
-Login Details:</div>
+FeedBack:</div>
 <div class="field">
               <div class="label">
-Username</div>
-<input type="text">
+Favorite Color</div>
+<input type="text" name=fcolor>
             </div>
 <div class="field">
               <div class="label">
-Password</div>
-<input type="password">
+How Is the Form:</div>
+<input type="text" name=feed>
             </div>
 <div class="field btns">
               <button class="prev-3 prev">Previous</button>
@@ -125,6 +126,18 @@ Password</div>
 </form>
 </div>
 </div>
+    </form>
 <script src="MultistepForm.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyk5AiGtKDmgW1ct5c-1M9hY5A5KnoGesNxEPxdLr-KsUjSsBU/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert('Success!'))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
   </body>
 </html>
